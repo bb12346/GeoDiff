@@ -228,18 +228,17 @@
         <h2 class="title is-3">Pipeline</h2>
         <div class="content has-text-justified">
            <p>
-           Overview of our self-prior learning.
+           Overview of our GeoDiff.
           </p>
            <div class="content has-text-centered">
         <img src="./static/images/overview.png" alt="Framework overview" style="width:80%; max-width:800px; margin-bottom: 30px;">
         </div>
           <p>
-            This approach aims to produce strong priors that are resilient to real-world night haze degradations. 
-            Given a clear nighttime image, we blend clear images with various maps collected from real-world haze images and add noise to these blended images. 
-            The augmented input is then fed into an Encoder-Decoder framework to recover the clear background. 
-            The loss is a simple L1 loss between the reconstructed image and the clear input. 
-            The key to self-prior learning is the severity of the augmentation. 
-            By increasing the noise values to approach as high as the pixel intensity values of the glow and light effect blended images, our augmentation becomes severe, resulting in stronger priors.
+             We first construct a point cloud from the reference and target images. 
+             During training, target-aware masking selectively masks both the reference images and their projected point clouds to highlight informative regions. 
+            These inputs are fed into a dual-branch diffusion model: the target branch encodes the masked image, while the cloud branch processes the projected point cloud. 
+            Joint self-attention fuses the two branches, enabling geometric cues to guide content synthesis.
+            At inference, the masked target image and its projected point cloud are passed into the finetuned model to complete the missing regions.
           </p>
 
         </div>
