@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="NightHaze: Nighttime Image Dehazing via Self-Prior Learning.">
+        content="GeoDiff: Geometry-Aware Diffusion for Reference-Driven Image Completion.">
   <meta name="keywords" content="Nighttime Dehazing, Prior Learning"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NightHaze: Nighttime Image Dehazing via Self-Prior Learning</title>
+  <title>GeoDiff: Geometry-Aware Diffusion for Reference-Driven Image Completion</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,24 +88,15 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">NightHaze: Nighttime Image Dehazing via Self-Prior Learning</h1>
+          <h1 class="title is-1 publication-title">GeoDiff: Geometry-Aware Diffusion for Reference-Driven Image Completion</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><b>AAAI 2025</b></span>
+            <span class="author-block"><b>NeurIPS 2025</b></span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=KyvHam4AAAAJ&hl=en&oi=ao">Beibei Lin</a><sup>1*</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=KyvHam4AAAAJ&hl=en&oi=ao">Beibei Lin</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=Z8PYhA4AAAAJ&hl=en&oi=ao">Yeying Jin</a><sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              Wending Yan<sup>2</sup>,
-            </span>
-            <span class="author-block">
-              Wei Ye<sup>2</sup>,
-            </span>
-            <span class="author-block">
-              Yuan Yuan<sup>2</sup>,
+              <a href="https://scholar.google.com/citations?user=v6rq6UsAAAAJ&hl=en&oi=ao">Tingting Chen</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=MOD0gv4AAAAJ&hl=en">Robby T. Tan</a><sup>1</sup>
@@ -114,7 +105,6 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>National University of Singapore,</span>
-            <span class="author-block"><sup>2</sup>Huawei International Pte Ltd</span>
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -209,22 +199,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Masked autoencoder (MAE) shows that severe augmentation during training produces robust representations for high-level tasks. 
-            This paper brings the MAE-like framework to nighttime image enhancement, demonstrating that severe augmentation during training produces strong network priors that are resilient to real-world night haze degradations. 
+            Reference-driven image completion, which restores missing regions in a target view using additional images, is particularly challenging when the target view differs significantly from the references. 
+            Existing generative methods rely solely on diffusion priors and, without geometric cues such as camera pose or depth, often produce misaligned or implausible content.
           </p>
           <p>
-            We propose a novel nighttime image dehazing method with self-prior learning. 
-            Our main novelty lies in the design of severe augmentation, which allows our model to learn robust priors. 
-            Unlike MAE that uses masking, we leverage two key challenging factors of nighttime images as augmentation: light effects and noise. 
-            During training, we intentionally degrade clear images by blending them with light effects as well as by adding noise, and subsequently restore the clear images. 
-            This enables our model to learn clear background priors. 
-            By increasing the noise values to approach as high as the pixel intensity values of the glow and light effect blended images, our augmentation becomes severe, resulting in stronger priors. 
+            We propose \textbf{GeoDiff}, a novel framework that incorporates explicit 3D structural guidance to enforce geometric consistency in the completed regions, setting it apart from prior image-only approaches. 
+            GeoDiff introduces two key ideas: conditioning the diffusion process on projected point clouds to infuse geometric information, and applying target-aware masking to guide the model toward relevant reference cues. 
+            The framework features a dual-branch diffusion architecture. One branch synthesizes the missing regions from the masked target, while the other extracts geometric features from the projected point cloud. 
+            Joint self-attention across branches ensures coherent and accurate completion. 
+            To address regions visible in references but absent in the target, we project the target view into each reference to detect occluded areas, which are then masked during training. 
+            This target-aware masking directs the model to focus on useful cues, enhancing performance in difficult scenarios. 
+            To our knowledge, GeoDiff is the first to tightly couple explicit 3D geometry with diffusion-based image completion in a unified framework.
           </p>
           <p>
-            While our self-prior learning is considerably effective in suppressing glow and revealing details of background scenes, in some cases, there are still some undesired artifacts that remain, particularly in the forms of over-suppression. 
-            To address these artifacts, we propose a self-refinement module based on the semi-supervised teacher-student framework. 
-            Our NightHaze, especially our MAE-like self-prior learning, shows that models trained with severe augmentation effectively improve the visibility of input haze images, approaching the clarity of clear nighttime images. 
-            Extensive experiments demonstrate that our NightHaze achieves state-of-the-art performance, outperforming existing nighttime image dehazing methods by a substantial margin of 15.5% for MUSIQ and 23.5% for ClipIQA.  
+            Experiments show that GeoDiff achieves a 17.1% PSNR improvement over state-of-the-art methods, significantly boosting geometric accuracy while maintaining high visual quality.
           </p>
 
         </div>
