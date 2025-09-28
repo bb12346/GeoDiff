@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="NightHaze: Nighttime Image Dehazing via Self-Prior Learning.">
+  <meta name="keywords" content="Nighttime Dehazing, Prior Learning"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NightHaze: Nighttime Image Dehazing via Self-Prior Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">NightHaze: Nighttime Image Dehazing via Self-Prior Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>AAAI 2025</b></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=KyvHam4AAAAJ&hl=en&oi=ao">Beibei Lin</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Z8PYhA4AAAAJ&hl=en&oi=ao">Yeying Jin</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              Wending Yan<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Wei Ye<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Yuan Yuan<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=MOD0gv4AAAAJ&hl=en">Robby T. Tan</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>National University of Singapore,</span>
+            <span class="author-block"><sup>2</sup>Huawei International Pte Ltd</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-size: 14px;">*These authors contributed equally.</span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+<!--               <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.07408"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--               <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/bb12346/nighthaze_codes"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+<!--               <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="content has-text-centered">
+      <img src="./static/images/trailer.png" alt="Qualitative results" style="width:80%; max-width:800px; margin-bottom: 30px;">
+    </div>
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <h2 class="subtitle has-text-centered" style="font-size: 16px;">
+<!--         <span class="dnerf"> -->
+        <p>
+        Qualitative results from NightEnhance'23, NightDeFog'20, DiT'23 and our method, on the real-world dataset.
+        Ours not only suppress glow but also reveal the detailed textures of the night scenes, including those under low light and strong glow.
+        </p>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Masked autoencoder (MAE) shows that severe augmentation during training produces robust representations for high-level tasks. 
+            This paper brings the MAE-like framework to nighttime image enhancement, demonstrating that severe augmentation during training produces strong network priors that are resilient to real-world night haze degradations. 
+          </p>
+          <p>
+            We propose a novel nighttime image dehazing method with self-prior learning. 
+            Our main novelty lies in the design of severe augmentation, which allows our model to learn robust priors. 
+            Unlike MAE that uses masking, we leverage two key challenging factors of nighttime images as augmentation: light effects and noise. 
+            During training, we intentionally degrade clear images by blending them with light effects as well as by adding noise, and subsequently restore the clear images. 
+            This enables our model to learn clear background priors. 
+            By increasing the noise values to approach as high as the pixel intensity values of the glow and light effect blended images, our augmentation becomes severe, resulting in stronger priors. 
+          </p>
+          <p>
+            While our self-prior learning is considerably effective in suppressing glow and revealing details of background scenes, in some cases, there are still some undesired artifacts that remain, particularly in the forms of over-suppression. 
+            To address these artifacts, we propose a self-refinement module based on the semi-supervised teacher-student framework. 
+            Our NightHaze, especially our MAE-like self-prior learning, shows that models trained with severe augmentation effectively improve the visibility of input haze images, approaching the clarity of clear nighttime images. 
+            Extensive experiments demonstrate that our NightHaze achieves state-of-the-art performance, outperforming existing nighttime image dehazing methods by a substantial margin of 15.5% for MUSIQ and 23.5% for ClipIQA.  
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Pipeline -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="content has-text-justified">
+           <p>
+           Overview of our self-prior learning.
+          </p>
+           <div class="content has-text-centered">
+        <img src="./static/images/overview.png" alt="Framework overview" style="width:80%; max-width:800px; margin-bottom: 30px;">
+        </div>
+          <p>
+            This approach aims to produce strong priors that are resilient to real-world night haze degradations. 
+            Given a clear nighttime image, we blend clear images with various maps collected from real-world haze images and add noise to these blended images. 
+            The augmented input is then fed into an Encoder-Decoder framework to recover the clear background. 
+            The loss is a simple L1 loss between the reconstructed image and the clear input. 
+            The key to self-prior learning is the severity of the augmentation. 
+            By increasing the noise values to approach as high as the pixel intensity values of the glow and light effect blended images, our augmentation becomes severe, resulting in stronger priors.
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Pipeline -->
+
+  </div>
+</section>
+  
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+
+   
+    <!-- Experiments -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative and Quantitative Results</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Qualitative Results</h3>
+        <div class="content has-text-justified">
+<!--           <p>
+            Here are some qualitative results.
+          </p> -->
+        </div>
+        <div class="content has-text-centered">
+        <img src="./static/images/Qualitative.png" alt="Qualitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
+        </div>
+        
+        <h3 class="title is-4">Quantitative Results</h3>
+        <div class="content has-text-justified">
+<!--           <p>
+            Here are critical experiment results in zero-shot HOI detection.
+          </p> -->
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/Quantitative.png" alt="Quantitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
+  
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Experiments -->
+
+
+
+
+  </div>
+</section>
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lin2024nighthaze,
+  title={NightHaze: Nighttime Image Dehazing via Self-Prior Learning},
+  author={Lin, Beibei and Jin, Yeying and Yan, Wending and Ye, Wei and Yuan, Yuan and Tan, Robby T},
+  journal={arXiv preprint arXiv:2403.07408},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2403.07408">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://bb12346.github.io" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
