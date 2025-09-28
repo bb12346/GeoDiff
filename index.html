@@ -227,14 +227,12 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Pipeline</h2>
         <div class="content has-text-justified">
-           <p>
-           Overview of our GeoDiff.
-          </p>
            <div class="content has-text-centered">
         <img src="./static/images/overview.png" alt="Framework overview" style="width:80%; max-width:800px; margin-bottom: 30px;">
         </div>
           <p>
-             We first construct a point cloud from the reference and target images. 
+            Overview of our GeoDiff framework: 
+            We first construct a point cloud from the reference and target images. 
              During training, target-aware masking selectively masks both the reference images and their projected point clouds to highlight informative regions. 
             These inputs are fed into a dual-branch diffusion model: the target branch encodes the masked image, while the cloud branch processes the projected point cloud. 
             Joint self-attention fuses the two branches, enabling geometric cues to guide content synthesis.
@@ -268,14 +266,31 @@
           </p> -->
         </div>
         <div class="content has-text-centered">
-        <img src="./static/images/Qualitative.png" alt="Qualitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
+        <img src="./static/images/exp1.png" alt="Qualitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
         </div>
-        
+
+          <p>
+          Qualitative comparisons from RealFill, Paint-by-Example and our method. 
+          The red bounding box marks the known, unaltered region of the target image (i.e., the area inside the box), except for the first-row images, where the known region lies outside the box. 
+          Our method synthesizes missing regions while ensuring better geometric consistency. 
+        </p>
+      </div>
+        <div class="content has-text-centered">
+        <img src="./static/images/exp2.png" alt="Qualitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
+        </div>
+
+          <p>
+           Qualitative comparisons from RealFill, Paint-by-Exampleand our method. 
+            The red bounding box marks the known, unaltered region of the target image (i.e., the area inside the box). 
+            Our method synthesizes missing regions while ensuring better geometric consistency. 
+          </p>
+      
+      <!--           <p>
+            Here are some qualitative results.
+          </p> -->
+      
         <h3 class="title is-4">Quantitative Results</h3>
         <div class="content has-text-justified">
-<!--           <p>
-            Here are critical experiment results in zero-shot HOI detection.
-          </p> -->
         </div>
         <div class="content has-text-centered">
           <img src="./static/images/Quantitative.png" alt="Quantitative Results" style="width:80%; max-width:800px; margin-bottom: 30px;">
