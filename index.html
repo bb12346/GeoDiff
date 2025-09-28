@@ -94,22 +94,19 @@
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=KyvHam4AAAAJ&hl=en&oi=ao">Beibei Lin</a><sup>1</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=KyvHam4AAAAJ&hl=en&oi=ao">Beibei Lin</a>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=v6rq6UsAAAAJ&hl=en&oi=ao">Tingting Chen</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?user=v6rq6UsAAAAJ&hl=en&oi=ao">Tingting Chen</a>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=MOD0gv4AAAAJ&hl=en">Robby T. Tan</a><sup>1</sup>
+              <a href="https://scholar.google.com/citations?user=MOD0gv4AAAAJ&hl=en">Robby T. Tan</a>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>National University of Singapore,</span>
+            <span class="author-block">National University of Singapore</span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block" style="font-size: 14px;">*These authors contributed equally.</span>
-          </div>
           
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -182,8 +179,8 @@
       <h2 class="subtitle has-text-centered" style="font-size: 16px;">
 <!--         <span class="dnerf"> -->
         <p>
-        Qualitative results from NightEnhance'23, NightDeFog'20, DiT'23 and our method, on the real-world dataset.
-        Ours not only suppress glow but also reveal the detailed textures of the night scenes, including those under low light and strong glow.
+        Given a few reference images of the same scene and a target image with missing regions, our method completes the target's missing regions while preserving geometric consistency more effectively than the state-of-the-art Paint-by-Example. 
+        Semi-transparent white masks indicate the known, unaltered regions of the target image.
         </p>
       </h2>
     </div>
@@ -203,7 +200,7 @@
             Existing generative methods rely solely on diffusion priors and, without geometric cues such as camera pose or depth, often produce misaligned or implausible content.
           </p>
           <p>
-            We propose \textbf{GeoDiff}, a novel framework that incorporates explicit 3D structural guidance to enforce geometric consistency in the completed regions, setting it apart from prior image-only approaches. 
+            We propose GeoDiff, a novel framework that incorporates explicit 3D structural guidance to enforce geometric consistency in the completed regions, setting it apart from prior image-only approaches. 
             GeoDiff introduces two key ideas: conditioning the diffusion process on projected point clouds to infuse geometric information, and applying target-aware masking to guide the model toward relevant reference cues. 
             The framework features a dual-branch diffusion architecture. One branch synthesizes the missing regions from the masked target, while the other extracts geometric features from the projected point cloud. 
             Joint self-attention across branches ensures coherent and accurate completion. 
