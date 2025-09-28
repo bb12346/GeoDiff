@@ -1,14 +1,14 @@
-# NightHaze (AAAI 2025)
+# GeoDiff (NeurIPS 2025)
 
-This is the repository that contains source code for the [NightHaze website](https://bb12346.github.io/NightHaze/).
+This is the repository that contains source code for the [GeoDiff website](https://bb12346.github.io/GeoDiff/).
   
-If you find NightHaze useful for your work please cite:
+If you find GeoDiff useful for your work please cite:
 ```
 @article{lin2024nighthaze,
-  title={NightHaze: Nighttime Image Dehazing via Self-Prior Learning},
-  author={Lin, Beibei and Jin, Yeying and Yan, Wending and Ye, Wei and Yuan, Yuan and Tan, Robby T},
-  journal={arXiv preprint arXiv:2403.07408},
-  year={2024}
+  title={GeoDiff: Geometry-Aware Diffusion for Reference-Driven Image Completion},
+  author={Lin, Beibei and Chen, Tingting and Robby T., Tan},
+  journal={The Thirty-Ninth Annual Conference on Neural Information Processing Systems},
+  year={2025}
 }
 ```
 
