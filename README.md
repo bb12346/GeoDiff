@@ -1,11 +1,11 @@
-# GeoDiff (NeurIPS 2025)
+# GeoComplete (NeurIPS 2025)
 
-This is the repository that contains source code for the [GeoDiff website](https://bb12346.github.io/GeoDiff/).
+This is the repository that contains source code for the [GeoComplete website](https://bb12346.github.io/GeoComplete/).
   
 If you find GeoDiff useful for your work please cite:
 ```
-@article{lin2024nighthaze,
-  title={GeoDiff: Geometry-Aware Diffusion for Reference-Driven Image Completion},
+@article{lin2025geocomplete,
+  title={GeoComplete: Geometry-Aware Diffusion for Reference-Driven Image Completion},
   author={Lin, Beibei and Chen, Tingting and Robby T., Tan},
   journal={The Thirty-Ninth Annual Conference on Neural Information Processing Systems},
   year={2025}
